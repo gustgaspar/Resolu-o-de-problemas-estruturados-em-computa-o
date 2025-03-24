@@ -1,56 +1,83 @@
-public class Pilha {
+public class Pilha{
     public static void main(String[] args) {
-        Pilha p1 = new Pilha(10);
-
-        p1.Insere(10);
+        Pilha p1 = new Pilha(5);
+        p1.Vazia();
+        p1.cheia();
+        p1.Insere(1);
+        p1.Insere(2);
+        p1.Insere(3);
+        p1.Insere(4);
+        p1.Insere(5);
+        p1.Imprime();
+        System.out.println();
+        p1.Vazia();
+        p1.cheia();
+        p1.Remove();
+        p1.Imprime();
+        System.out.println();
+        p1.Remove();
+        p1.Imprime();
+        System.out.println(" ");
+        p1.Remove();
+        p1.Imprime();
+        System.out.println(" ");
+        p1.Remove();
+        p1.Imprime();
+        System.out.println(" ");
+        p1.Remove();
         p1.Imprime();
     }
 
+    // Contrutror
     public Pilha(int capacidade){
         this.capacidade = capacidade;
-        this.topo = 1;
-        //this.dados[capacidade];
+        this.dados = new int[capacidade];
+        this.topo = -1;
     }
-           // Atributos //
 
+    // atributos
     private int capacidade;
     private int topo;
     private int[] dados;
 
+    //metodos
 
-            // Métodos //
-
-    public void Insere(int var){
-        topo ++;
-        dados[topo] = var;
-    }
-
-    public void cheia(){
-        if (topo == capacidade){
-            System.out.println("Está cheia!");
+    public void Insere(int elemento){
+        if (this.cheia()){
+            System.out.println("ERRO: Pilha cheia!");
         } else {
-            System.out.println("Não está cheia!");
+            topo++;
+            dados[topo] = elemento;
         }
     }
 
-    public void Vazia(){
-        if (topo == -1){
-            System.out.println("Está vazia!");
-        } else {
-            System.out.println("Não está vazia!");
-        }
+    public boolean cheia(){
+        return (topo == capacidade - 1); // revisar o pq do -1
     }
 
-    public void Remove(){
-        int e;
-        e = dados[topo];
-        topo--;
+    public boolean Vazia(){
+        return (topo == -1);
+    }
+
+    public int Remove(){
+        if (this.Vazia()){
+            System.out.println("Pilha vazia!");
+        }
+            int elemento = dados[topo];
+            topo--;
+        return elemento;
     }
 
     public void Imprime(){
-        if (topo == -1){
-            System.out.println("Não há elementos na pilha.");
-        } else {
-        System.out.println(dados.length); }
+        if (this.Vazia()) {
+            System.out.println("ERRO: Pilha vazia!");
+        }
+        else {
+            System.out.println("Elemento no topo: " + dados[topo]);
+            System.out.println("Todos os elementos na pilha: ");
+            for (int i = 0; i <= topo; i++) {
+                System.out.println(dados[i]);
+            }
+        }
     }
 }
