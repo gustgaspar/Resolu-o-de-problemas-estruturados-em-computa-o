@@ -1,31 +1,6 @@
 public class Pilha{
     public static void main(String[] args) {
         Pilha p1 = new Pilha(5);
-        p1.Vazia();
-        p1.cheia();
-        p1.Insere(1);
-        p1.Insere(2);
-        p1.Insere(3);
-        p1.Insere(4);
-        p1.Insere(5);
-        p1.Imprime();
-        System.out.println();
-        p1.Vazia();
-        p1.cheia();
-        p1.Remove();
-        p1.Imprime();
-        System.out.println();
-        p1.Remove();
-        p1.Imprime();
-        System.out.println(" ");
-        p1.Remove();
-        p1.Imprime();
-        System.out.println(" ");
-        p1.Remove();
-        p1.Imprime();
-        System.out.println(" ");
-        p1.Remove();
-        p1.Imprime();
     }
 
     // Contrutror
@@ -52,7 +27,7 @@ public class Pilha{
     }
 
     public boolean cheia(){
-        return (topo == capacidade - 1); // revisar o pq do -1
+        return (topo == capacidade - 1);
     }
 
     public boolean Vazia(){
