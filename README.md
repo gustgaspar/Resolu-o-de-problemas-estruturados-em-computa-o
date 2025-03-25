@@ -1,1 +1,1 @@
-# Resolu-o-de-problemas-estruturados-em-computa-o
+Resolução de Problemas Estruturados em Computação
